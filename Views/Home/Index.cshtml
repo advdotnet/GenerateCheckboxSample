@@ -1,0 +1,30 @@
+﻿@model CheckboxViewModel
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+
+    <form method="post" asp-antiforgery="false">
+        <label class="remember-me">
+            <input asp-for="RememberMe" id="RememberMe" />
+            <span>@Html.DisplayNameFor(m => m.RememberMe)</span>
+        </label>
+        <button class="btn btn-outline-secondary" id="prepare-btn">Prepare</button>
+        <button class="btn btn-primary" type="submit">Submit</button>
+    </form>
+</div>
+
+@section Scripts {
+    <script>
+        $(function () {
+            $('#prepare-btn').click(function () {
+                $('#RememberMe').val('1');
+                $('#RememberMe').prop('checked', true);
+                return false;
+            });
+        });
+    </script>
+}
